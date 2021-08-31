@@ -1,6 +1,6 @@
 # Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition
 
-This repository is the official implementation of [Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition](https://arxiv.org/abs/2030.12345).
+This repository is the official implementation of [Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition]().
 
 ## Requirements
 
@@ -37,15 +37,19 @@ python -m scripts.run_reals_3d
 ```
 We also provide the mini-batch and multi-resolution version of REALS in `run_reals_minibatch.py`, `run_reals_multi.py` respectively.
 
+After running REALS on one sample data, there will be composite transformation `tau`, original images `Y`, aligned images `L`,
+low-rank component `L_stat`, and sparse component `S` in the resulting directory.
+
 ## Evaluation
 
-We provide 3 sample codes for evaluation. However, the code may require modifications, which depends on the results. 
+We provide 3 sample codes for evaluation. However, the codes can perfectly reproduce the results in original paper only when
+required results are fully available. So, it may require to modify some parts of the code to analyze the result with below codes.
 - `eval_heatmap.py` shows the alignment inconsistency heatmap.  
 - `eval_barplot.py` shows the alignment inconsistency bar plot of REALS. It is to check performance with different batch size.
 - `eval_timeplot.py` shows the (time, alignment inconsistency) plot. You need to save time and transformation at each iteration to plot the result.
 
 ## Results
-
+We will make it available after the review.
 
 ## Contributing
-The base code is from [BEAR](https://github.com/NICALab/BEAR). We will make it public after the review.
+The base code is from [BEAR](https://github.com/NICALab/BEAR). We will make it available after the review.

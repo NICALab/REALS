@@ -6,9 +6,8 @@ import torch
 class REALS_model(nn.Module):
     def __init__(self, data_shape, tau, device, k=1):
         """
-        Just contain one linear layer.
-
-        The weight of this layer is the W in the paper.
+        Model of REALS. It consists of geometric transformation and linear layer.
+        In case of euclidean transformation, you can control clamping values for better optimization.
         """
         super().__init__()
         self.w, self.h, self.t = data_shape
@@ -64,9 +63,9 @@ class REALS_model(nn.Module):
 class REALS_model_3d(nn.Module):
     def __init__(self, data_shape, tau, device, k=1):
         """
-        Just contain one linear layer.
-
-        The weight of this layer is the W in the paper.
+        3D Model of REALS. It consists of 3D geometric transformation and linear layer.
+        affine transformation is available. Controlling clamping value is important since
+        optimization may lead to minification of images.
         """
         super().__init__()
         self.w, self.h, self.d, self.t = data_shape
@@ -98,12 +97,18 @@ class REALS_model_3d(nn.Module):
         return x_reg, L
 
     def clamp_theta(self):
+        '''
+        the images can be minified upto 1.02.
+        '''
         self.theta[:, 0, 0].data.clamp_(max=1.02)
         self.theta[:, 1, 1].data.clamp_(max=1.02)
         self.theta[:, 2, 2].data.clamp_(max=1.02)
 
 
 class REALS_model_minibatch(nn.Module):
+    """
+    Model of REALS mini-batch version. It consists of geometric transformation and linear layer.
+    """
     def __init__(self, data_shape, tau, device, k=1):
         super().__init__()
         self.w, self.h, self.t = data_shape
@@ -150,9 +155,8 @@ class REALS_model_minibatch(nn.Module):
 class REALS_model_multi(nn.Module):
     def __init__(self, data_shape, tau, device, k=1):
         """
-        Just contain one linear layer.
-
-        The weight of this layer is the W in the paper.
+        Model of multi-resolution REALS. It consists of geometric transformation and linear layer.
+        Multi-resolution consists of x1, x2, x4, x8, which is 4-levels.
         """
         super().__init__()
         self.w, self.h, self.t = data_shape
@@ -202,7 +206,6 @@ class REALS_model_multi(nn.Module):
         grid = F.affine_grid(theta, x_reshape_x4.size())
         x_reg_x4 = F.grid_sample(x_reshape_x4, grid).view(self.t, self.inp // 16)  # 60x(128x128)
         L_x4 = self.ln_x4(x_reg_x4) @ self.ln_x4.weight  # 60x(128x128)
-
         # x8
         grid = F.affine_grid(theta, x_reshape_x8.size())
         x_reg_x8 = F.grid_sample(x_reshape_x8, grid).view(self.t, self.inp // 64)  # 60x(64x64)

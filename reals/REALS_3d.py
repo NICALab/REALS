@@ -1,8 +1,10 @@
+'''
+Code for optimization of 3D REALS in run_reals_3d.py
+'''
 import argparse
 import time
 import torch
 from .model import REALS_model_3d
-import warnings
 
 
 def REALS_3d(data: torch.Tensor, args: argparse.Namespace, data_shape):

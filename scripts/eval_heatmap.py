@@ -18,7 +18,6 @@ def plot_heatmap(all_method_type):
         plt.matshow(all_method_type[all_method_names[i]])
         plt.gca().invert_yaxis()
         plt.colorbar(shrink=0.8, aspect=10)
-        # plt.clim(0.0, 0.08)
         plt.show()
         plt.close()
 
@@ -163,19 +162,5 @@ for method, method_folders in all_method_folders.items():
         all_method_time[method][ro, tr] = avg_time
 
 
-
-for method in all_method_names:
-    method_measure = all_method_measure[method].flatten()
-    method_time = all_method_time[method].flatten()
-    method_measure_avg = np.mean(method_measure)
-    method_measure_std = np.std(method_measure)
-    method_time_avg = np.mean(method_time)
-    method_time_std = np.std(method_time)
-    method_time_max = np.max(method_time)
-    method_time_min = np.min(method_time)
-    print(f'method: {method}, measure average/std: {method_measure_avg}/{method_measure_std}, '
-          f'time average/std: {method_time_avg}/{method_time_std}'
-          f'time max/min: {method_time_max}/{method_time_min}')
-
-# plot_heatmap(all_method_measure)
+plot_heatmap(all_method_measure)
 plot_heatmap(all_method_time)

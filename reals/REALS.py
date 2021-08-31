@@ -1,3 +1,6 @@
+'''
+Code for optimization of REALS in run_reals.py
+'''
 import argparse
 import torch
 from .model import REALS_model

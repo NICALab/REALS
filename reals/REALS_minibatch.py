@@ -1,3 +1,6 @@
+'''
+Code for optimization of mini-batch version of REALS in run_reals_minibatch.py
+'''
 import argparse
 import time
 import torch

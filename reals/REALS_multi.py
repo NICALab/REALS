@@ -1,3 +1,7 @@
+'''
+Code for optimization of multi-resolution REALS in run_reals_multi.py
+Note that this code returns the additional results on 8x level alignment for verification.
+'''
 import argparse
 import time
 import torch
