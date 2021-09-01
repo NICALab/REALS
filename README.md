@@ -13,10 +13,10 @@ pip install -r requirements.txt
 ```
 
 Data for REALS is required for execution of the code. 
-- [2-D Zebrafish brain data](https://drive.google.com/drive/folders/19jtKft4TbDQj4SMBEcy13drACZGmNDeG?usp=sharing): Static data with size [512(x), 512(y), 60(z)]. Additional perturbations or noise can be applied.
-- [3-D Zebrafish brain data](https://drive.google.com/drive/folders/1sPP-dAnScBAyF-3K_W0CfBJzuO4cEXhB?usp=sharing): Data with size [256(x), 512(y), 48(z), 60(t)]. Random translation and rotation are applied synthetically.
-- [Mouse brain data](https://drive.google.com/drive/folders/1ZW4MOOapABmX4Q3C0Is_HMkf7DbORgHU?usp=sharing): Data with size [480(x), 752(y), 1000(t)]. `Y.tif` is the original video, and `Y_DoG.tif` is high pass filtered video.
-- [2-D Zebrafish brain data with drift](https://drive.google.com/drive/folders/1P1CLvrtF07NHrw8FRIGKWrbexccTI7FV?usp=sharing): Data with size [256(x), 512(y), 600(t)]. Original video has small drift.
+- [2-D Zebrafish brain data](): Static data with size [512(x), 512(y), 60(z)]. Additional perturbations or noise can be applied.
+- [3-D Zebrafish brain data](): Data with size [256(x), 512(y), 48(z), 60(t)]. Random translation and rotation are applied synthetically.
+- [Mouse brain data](): Data with size [480(x), 752(y), 1000(t)]. `Y.tif` is the original video, and `Y_DoG.tif` is high pass filtered video.
+- [2-D Zebrafish brain data with drift](): Data with size [256(x), 512(y), 600(t)]. Original video has small drift.
 
 To run `run_reals.py`, you have to generate data with perturbation from static 2-D Zebrafish brain data. 
 - `generate_oscillation.py` generates randomly perturbed data with corresponding transformation from static 2-D Zebrafish brain data.
