@@ -1,6 +1,6 @@
 # Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition
 
-This repository is the official implementation of [Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition]().
+This repository is the official implementation of [Robust and Efficient Image Alignment through Simultaneous Low Rank and Sparse Decomposition](). This paper is accepted in WACV 2023.
 
 ## Requirements
 
@@ -52,4 +52,4 @@ required results are fully available. So, it may require to modify some parts of
 We will make it available after the review.
 
 ## Contributing
-The base code is from [BEAR](https://github.com/NICALab/BEAR). We will make it available after the review.
+The base code is from [BEAR](https://github.com/NICALab/BEAR).
